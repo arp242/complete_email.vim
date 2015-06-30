@@ -1,0 +1,13 @@
+:AddEmailAddress	complete_email.txt	/*:AddEmailAddress*
+complete-email	complete_email.txt	/*complete-email*
+complete-email-commands	complete_email.txt	/*complete-email-commands*
+complete-email-functions	complete_email.txt	/*complete-email-functions*
+complete-email-mappings	complete_email.txt	/*complete-email-mappings*
+complete-email-options	complete_email.txt	/*complete-email-options*
+complete_email#add_address()	complete_email.txt	/*complete_email#add_address()*
+complete_email#complete()	complete_email.txt	/*complete_email#complete()*
+complete_email#read_db()	complete_email.txt	/*complete_email#read_db()*
+complete_email.txt	complete_email.txt	/*complete_email.txt*
+g:complete_email_addresses	complete_email.txt	/*g:complete_email_addresses*
+g:complete_email_file	complete_email.txt	/*g:complete_email_file*
+g:search_highlight_no_map	complete_email.txt	/*g:search_highlight_no_map*

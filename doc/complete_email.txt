@@ -1,0 +1,97 @@
+*complete_email.txt* completion of email addresses.
+
+==============================================================================
+INTRODUCTION                                                  *complete-email*
+Allow completion of email addresses so you can use Vim as a basic "address
+book".
+
+This is useful when you use Vim to compose emails in a program such as {mutt}.
+I have the following settings in my {muttrc}:
+>
+	set edit_headers = yes          # edit the header of your outgoing messages
+	set autoedit = yes              # Go directly to editor after pressing m
+<
+After pressing {m} I immediately go to Vim, and can fill out the headers
+myself:
+>
+	From: Martin Tournoij <martin@arp242.net>
+	To: 
+	Cc: 
+	Bcc: 
+	Subject: 
+	Reply-To: 
+<
+I can then use this plugin to fill in the `To:`, `Cc:`, etc. fields.
+
+==============================================================================
+MAPPINGS                                              *complete-email-mappings*
+
+This plugin sets the following mappings:
+>
+    inoremap <silent> <Plug>(complete-email-complete) <C-r>=complete_email#complete()<CR>
+    imap <C-x><C-m> <Plug>(complete-email-complete)
+
+    " Make subsequent <C-m> presses after <C-x><C-m> go to the next entry (just like
+    " other <C-x>* mappings)
+    inoremap <expr> <C-m> pumvisible() ?  "\<C-n>" : "\<C-m>"
+<
+Set |g:search_highlight_no_map| to 1 to not map any keys.
+
+==============================================================================
+COMMANDS                                              *complete-email-commands*
+
+*:AddEmailAddress*
+
+        Add a new email address. You will be prompted for the email address
+        (mandatory) and name (optional). The command tries to detect if the
+        cursor is on top of an email address, which will be filled in by
+        default.
+
+        Press <C-c> to abort.
+
+
+==============================================================================
+FUNCTIONS                                           *complete-email-functions*
+
+complete_email#read_db()                            *complete_email#read_db()*
+        Read the database file (|g:complete_email_file|), and return it as
+        a list. Note that this does _not_ assign anything to
+        |g:complete_email_addresses|, you will have to do that yourself:
+>
+            let g:complete_email_addresses = complete_email#read_db()
+<
+complete_email#complete()                          *complete_email#complete()*
+        Start completion at the cursor location.
+
+complete_email#add_address({email}, {name}, {other})   *complete_email#add_address()*
+        Add a new email address to the database file.  Also re-sets
+        |g:complete_email_addresses|.
+
+==============================================================================
+OPTIONS                                               *complete-email-options*
+
+*g:complete_email_file*                (Path, default: `expand('~/.mutt/address')`)
+        Location of your email database.
+
+        There are 3 fields in the address file. {name}, {email_address}, and
+        {extra info}. The extra info is shown preview window. These fields are
+        separated by the {0x1e} character. Type <C-v>x1e to insert it.
+
+*g:search_highlight_no_map*            (Boolean, default: undefined)
+       Set to 1 to prevent the plugin from mapping any keys.
+
+*g:complete_email_addresses*           (List, default: [])
+        A list of the email addresses we use for completion. Normally this is
+        read from the database file (|g:complete_email_file|) on first access,
+        but if you don't want to use a db file, you can define this in your
+        |vimrc| manually:
+>
+            let g:complete_email_addresses = [
+            \   ['martin@example.com', 'Martin Example'],
+            \   ['another@example.com', 'Another Example', 'Data for preview window],
+            \]
+<
+        Note that |:AddEmailAddress| will no longer work if you do this.
+
+
+vim:tw=78:ts=8:ft=help:norl:expandtab
