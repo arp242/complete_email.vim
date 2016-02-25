@@ -35,7 +35,7 @@ This plugin sets the following mappings:
     " other <C-x>* mappings)
     inoremap <expr> <C-m> pumvisible() ?  "\<C-n>" : "\<C-m>"
 <
-Set |g:search_highlight_no_map| to 1 to not map any keys.
+Set |g:complete_email_no_map| to 1 to not map any keys.
 
 ==============================================================================
 COMMANDS                                              *complete-email-commands*
@@ -70,14 +70,14 @@ complete_email#add_address({email}, {name}, {other})   *complete_email#add_addre
 ==============================================================================
 OPTIONS                                               *complete-email-options*
 
-*g:complete_email_file*                (Path, default: `expand('~/.mutt/address')`)
+*g:complete_email_file*             (Path, default: `expand('~/.mutt/address')`)
         Location of your email database.
 
         There are 3 fields in the address file. {name}, {email_address}, and
         {extra info}. The extra info is shown preview window. These fields are
         separated by the {0x1e} character. Type <C-v>x1e to insert it.
 
-*g:search_highlight_no_map*            (Boolean, default: undefined)
+*g:complete_email_no_map*                        (Boolean, default: undefined)
        Set to 1 to prevent the plugin from mapping any keys.
 
 *g:complete_email_addresses*           (List, default: [])

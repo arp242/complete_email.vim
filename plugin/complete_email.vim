@@ -27,8 +27,7 @@ endif
 
 "##########################################################
 " Mappings
-
-if !exists('g:search_highlight_no_map') || empty(g:search_highlight_no_map)
+if !exists('g:complete_email_no_map') || empty(g:complete_email_no_map)
 	inoremap <silent> <Plug>(complete-email-complete) <C-r>=complete_email#complete()<CR>
 	imap <C-x><C-m> <Plug>(complete-email-complete)
 

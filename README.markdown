@@ -1,8 +1,6 @@
 - [This plugin at www.vim.org](http://www.vim.org/scripts/script.php?script_id=5208)
-- [GitHub mirror](https://github.com/vim-scripts/complete_email.vim)
-- [Full documentation](http://code.arp242.net/complete_email.vim/raw/tip/doc/complete_email.txt) (`:help complete-email.txt`)
 
----------------------------
+-----------------------------------------
 
 Allow completion of email addresses so you can use Vim as a basic "address
 book".
