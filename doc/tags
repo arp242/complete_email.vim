@@ -10,4 +10,4 @@ complete_email#read_db()	complete_email.txt	/*complete_email#read_db()*
 complete_email.txt	complete_email.txt	/*complete_email.txt*
 g:complete_email_addresses	complete_email.txt	/*g:complete_email_addresses*
 g:complete_email_file	complete_email.txt	/*g:complete_email_file*
-g:search_highlight_no_map	complete_email.txt	/*g:search_highlight_no_map*
+g:complete_email_no_map	complete_email.txt	/*g:complete_email_no_map*
